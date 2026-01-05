@@ -48,7 +48,7 @@ spec:
               value: amqp://$(RABBITMQ_USER):$(RABBITMQ_PASS)@$(RABBITMQ_HOST):$(RABBITMQ_PORT)/
 
           ports:
-            - containerPort: 4004
+            - containerPort: 4001
 
           resources:
             requests:
