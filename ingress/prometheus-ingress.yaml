@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: ${ALB_DNS}
+    - host: k3s-alb-3c06f2d-1194707239.ap-southeast-1.elb.amazonaws.com
       http:
         paths:
           # This captures everything after /prometheus into group $2
