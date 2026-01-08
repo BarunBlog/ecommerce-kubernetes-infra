@@ -3,18 +3,13 @@ kind: Ingress
 metadata:
   name: prometheus-ingress
   namespace: monitoring
-  annotations:
-    # This strips the /prometheus prefix before sending to the pod
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
   ingressClassName: nginx
   rules:
-    - host: k3s-alb-3c06f2d-1194707239.ap-southeast-1.elb.amazonaws.com
+    - host: prometheus.k3s-alb-3c06f2d-1194707239.ap-southeast-1.elb.amazonaws.com
       http:
         paths:
-          # This captures everything after /prometheus into group $2
-          - path: /prometheus(/|$)(.*)
+          - path: /
             pathType: Prefix
             backend:
               service:
